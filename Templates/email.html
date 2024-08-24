@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email | Email Encryption App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/email.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Email Encryption App</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('email') }}">Email</a></li>
+                <li><a href="{{ url_for('decrypt') }}">Decrypt</a></li>
+            </ul>
+        </nav>
+        <h2 class="header-title animate-text">EMAIL ENCRYPTION APP</h2>
+    </header>
+    <div class="container">
+        <h2>Send Encrypted Email</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="recipient">Recipient</label>
+                <input type="email" class="form-control" name="recipient" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-custom">Send Email</button>
+        </form>
+
+        <h2>Generate Custom Key</h2>
+        <form action="{{ url_for('generate_key_route') }}" method="post">
+            <button type="submit" class="btn btn-custom">Generate Key</button>
+        </form>
+
+        {% if get_flashed_messages() %}
+            <div class="flash-messages">
+                {% for message in get_flashed_messages(with_categories=true) %}
+                    <div class="flash {{ message[0] }}">{{ message[1] }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/in/muhammad-huzaifa-anjum-a80aa0279/"><img src="{{ url_for('static', filename='images/link.png') }}" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+            <a href="https://x.com/ShortTemperd007"><img src="{{ url_for('static', filename='images/x2.png') }}" alt="Twitter"></a>
+        </div>
+        <p>&copy; Copyright Reserved for MUHAMMAD HUZAIFA</p>
+    </footer>
+</body>
+</html>

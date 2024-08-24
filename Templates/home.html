@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Email Encryption App</title>
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Email Encryption App</h1>
+            </div>
+            <ul class="nav-links">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('email') }}">Email</a></li>
+                    <li><a href="{{ url_for('decrypt') }}">Decrypt</a></li>
+                </ul>
+                
+            </ul>
+        </nav>
+        <h2 class="header-title animate-text">EMAIL ENCRYPTION APP</h2>
+    </header>
+
+    <div class="container">
+        <h1>Welcome to the Email Encryption App</h1>
+        <p>Your secure solution for encrypted communication.</p>
+        <a href="login" class="btn btn-custom">Login</a>
+
+        <div class="image-section">
+            <div class="image-box">
+                <img src="{{ url_for('static', filename='images/image1.jpeg') }}" alt="Image 1">
+                <p>Email encryption is becoming increasingly vital as concerns about digital privacy and security grow. With the rise of cyber threats, including phishing attacks and data breaches, individuals and organizations are prioritizing the protection of sensitive information shared via email. Encryption technologies like PGP (Pretty Good Privacy) and S/MIME (Secure/Multipurpose Internet Mail Extensions) are widely adopted to safeguard email content, ensuring that only intended recipients can access the information. This trend underscores a broader move towards securing digital communications in an era where data privacy is under constant scrutiny.</p>
+            </div>
+            <div class="image-box">
+                <img src="{{ url_for('static', filename='images/image2.jpeg') }}" alt="Image 2">
+                <p>The implementation of email encryption has seen a surge due to advancements in cryptographic methods and the growing awareness of cyber threats. Modern encryption solutions often integrate seamlessly with email clients, providing users with straightforward options to encrypt their messages without requiring extensive technical knowledge. Services like end-to-end encrypted email providers have gained popularity, offering built-in security features that automatically encrypt and decrypt messages. This ease of use is contributing to the widespread adoption of email encryption among both personal and professional users.</p>
+            </div>
+            <div class="image-box">
+                <img src="{{ url_for('static', filename='images/image3.png') }}" alt="Image 3">
+                <p>Additionally, regulatory frameworks and compliance requirements are driving the adoption of email encryption. Regulations such as the General Data Protection Regulation (GDPR) and the Health Insurance Portability and Accountability Act (HIPAA) mandate strict measures to protect personal and sensitive information. Email encryption helps organizations meet these legal obligations by ensuring that sensitive data transmitted via email remains confidential and protected from unauthorized access. As regulations continue to evolve and expand, the role of email encryption in maintaining compliance and safeguarding information will likely become even more critical.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/in/muhammad-huzaifa-anjum-a80aa0279/"><img src="{{ url_for('static', filename='images/link.png') }}" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+            <a href="https://x.com/ShortTemperd007"><img src="{{ url_for('static', filename='images/x2.png') }}" alt="Twitter"></a>
+        </div>
+        <p>&copy; Copyright Reserved for MUHAMMAD HUZAIFA</p>
+    </footer>
+</body>
+
+</html>

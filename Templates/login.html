@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Email Encryption App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Email Encryption App</h1>
+               
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('email') }}">Email</a></li>
+                <li><a href="{{ url_for('decrypt') }}">Decrypt</a></li>
+            </ul>
+            <div class="header-title">EMAIL ENCRYPTION APP</div>
+        </nav>
+    </header>
+
+    
+
+    <div class="container">
+        <br><br>
+        <h2>LOGIN</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-custom">Login</button>
+        </form>
+    </div>
+
+    <!-- User Manual Section -->
+    <section class="user-manual">
+        <h2>User Manual</h2>
+        <p>Welcome to the Email Encryption Application! This guide will walk you through how to use the application to securely encrypt a message, send it via email, and how the recipient can decrypt the message.</p>
+        
+        <h3>1. Introduction</h3>
+        <p>Welcome to the Email Encryption Application! This guide will walk you through how to use the application to securely encrypt a message, send it via email, and how the recipient can decrypt the message.</p>
+        
+        <h3>2. Accessing the Application</h3>
+        <ol>
+            <li><strong>Open the Application:</strong> Navigate to the URL where the application is hosted. You'll be greeted with the home page.</li>
+        </ol>
+
+        <h3>3. Login</h3>
+        <ol>
+            <li><strong>Navigate to the Login Page:</strong> Click on the "Login" link on the home page.</li>
+            <li><strong>Enter Your Credentials:</strong>
+                <ul>
+                    <li><strong>Email:</strong> Enter your email address.</li>
+                    <li><strong>Password:</strong> Enter your password.</li>
+                    <li><strong>App Password Configuration:</strong> If you're using Gmail and have enabled 2-Step Verification, you will need to create an App Password to use in the application. Here's how:
+                        <ul>
+                            <li><strong>Go to your Google Account:</strong> Navigate to <a href="https://myaccount.google.com/security">Google Account Security</a>.</li>
+                            <li><strong>Under 'Signing in to Google', select 'App Passwords':</strong> This will take you to a page where you can generate an App Password.</li>
+                            <li><strong>Generate App Password:</strong> Choose the app as 'Mail' and the device as 'Other', then click 'Generate'. Copy the generated password.</li>
+                            <li><strong>Use App Password:</strong> Paste the App Password into the password field in the login form.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Submit:</strong> Click the "Login" button. Your credentials will be saved, and you'll be redirected to the email page.</li>
+        </ol>
+
+        <h3>4. Generating an Encryption Key</h3>
+        <ol>
+            <li><strong>Navigate to the Email Page:</strong> Once logged in, go to the email page.</li>
+            <li><strong>Generate Key:</strong>
+                <ul>
+                    <li>Click the "Generate Key" button.</li>
+                    <li>A new encryption key will be generated and saved. The key will be displayed on the page.</li>
+                    <li><strong>Note:</strong> Save this key securely, as it will be needed to decrypt any messages you send.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>5. Encrypting and Sending a Message</h3>
+        <ol>
+            <li><strong>Compose an Email:</strong>
+                <ul>
+                    <li><strong>Recipient:</strong> Enter the email address of the person you want to send the encrypted message to.</li>
+                    <li><strong>Subject:</strong> Enter the subject of your email.</li>
+                    <li><strong>Message:</strong> Write the message you wish to encrypt.</li>
+                </ul>
+            </li>
+            <li><strong>Encrypt the Message:</strong>
+                <ul>
+                    <li>The application will automatically encrypt your message using the generated encryption key.</li>
+                </ul>
+            </li>
+            <li><strong>Send the Email:</strong>
+                <ul>
+                    <li>Click the "Send" button.</li>
+                    <li>Your encrypted message will be sent to the recipient.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>6. Decrypting a Message</h3>
+        <p><strong>For the Recipient:</strong></p>
+        <ol>
+            <li><strong>Navigate to the Decryption Page:</strong> Go to the decryption page provided in the application.</li>
+            <li><strong>Enter Decryption Details:</strong>
+                <ul>
+                    <li><strong>Encrypted Message:</strong> Copy and paste the encrypted message you received into the provided field.</li>
+                    <li><strong>Key:</strong> Enter the encryption key that was used to encrypt the message.</li>
+                </ul>
+            </li>
+            <li><strong>Decrypt the Message:</strong>
+                <ul>
+                    <li>Click the "Decrypt" button.</li>
+                    <li>The application will attempt to decrypt the message using the provided key.</li>
+                    <li>If successful, the decrypted message will be displayed on the page.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>7. Using AJAX for Decryption (Advanced)</h3>
+        <ol>
+            <li><strong>Send an AJAX Request:</strong>
+                <ul>
+                    <li>Prepare an AJAX POST request with the following data:
+                        <ul>
+                            <li><strong>Encrypted Message:</strong> The encrypted message in base64 format.</li>
+                            <li><strong>Key:</strong> The encryption key in base64 format.</li>
+                        </ul>
+                    </li>
+                    <li>The server will process this request and return the decrypted message in JSON format.</li>
+                </ul>
+            </li>
+            <li><strong>Handle Response:</strong>
+                <ul>
+                    <li>The response will include the status of the decryption attempt and the decrypted message if successful.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>8. Troubleshooting</h3>
+        <ul>
+            <li><strong>Failed to Send Email:</strong> Ensure that your email configuration is correct and that your email service provider is operational.</li>
+            <li><strong>Decryption Issues:</strong> Verify that the correct encryption key and base64 encoded message are used. Ensure the key matches the one used for encryption.</li>
+        </ul>
+
+        <h3>9. Contact Support</h3>
+        <p>For further assistance, please contact support at <a href="mailto:sohaibbwpanjum112233@gmail.com">sohaibbwpanjum112233@gmail.com</a>.</p>
+    </section>
+
+    <footer>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook"></a>
+            <a href="https://www.linkedin.com/in/muhammad-huzaifa-anjum-a80aa0279/"><img src="{{ url_for('static', filename='images/link.png') }}" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+            <a href="https://x.com/ShortTemperd007"><img src="{{ url_for('static', filename='images/x2.png') }}" alt="Twitter"></a>
+        </div>
+        <p>&copy; Copyright Reserved for MUHAMMAD HUZAIFA</p>
+    </footer>
+</body>
+</html>

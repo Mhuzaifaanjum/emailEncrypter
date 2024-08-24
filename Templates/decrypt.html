@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decrypt | Email Encryption App</title>
+    <link rel="stylesheet" type="text/css" href="static/css/decrypt.css">
+    <script>document.addEventListener('DOMContentLoaded', () => {
+        const decryptButton = document.getElementById('decryptButton');
+        const decryptForm = document.getElementById('decryptForm');
+        const decryptedMessageDiv = document.getElementById('decrypted_message');
+    
+        decryptButton.addEventListener('click', () => {
+            const formData = new FormData(decryptForm);
+            fetch('/decrypt_message', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    decryptedMessageDiv.textContent = data.message;
+                } else {
+                    decryptedMessageDiv.textContent = `Error: ${data.message}`;
+                }
+            })
+            .catch(error => {
+                decryptedMessageDiv.textContent = `Request failed: ${error}`;
+            });
+        });
+    });
+    </script>
+</head>
+<header>
+    <nav>
+        <div class="logo">
+            <h1>Email Encryption App</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('email') }}">Email</a></li>
+                <li><a href="{{ url_for('decrypt') }}">Decrypt</a></li>
+        </ul>
+    </nav>
+    <h2 class="header-title animate-text">EMAIL ENCRYPTION APP</h2>
+</header>
+<body>
+    <div class="container">
+        <h2>Decrypt Email</h2>
+        <form id="decryptForm">
+            <div class="form-group">
+                <label for="encrypted_message">Encrypted Message</label>
+                <textarea id="encrypted_message" class="form-control" name="encrypted_message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="key">Secret Key</label>
+                <input id="key" type="text" class="form-control" name="key" required>
+            </div>
+            <button type="button" id="decryptButton" class="btn btn-custom">Decrypt</button>
+        </form>
+        <div id="decrypted_message" class="decrypted-message">
+            <!-- Decrypted message will be displayed here -->
+        </div>
+    </div>
+
+
+    
+</body>
+<footer>
+    <div class="social-buttons">
+        <a href="https://www.facebook.com/"><img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook"></a>
+        <a href="https://www.linkedin.com/in/muhammad-huzaifa-anjum-a80aa0279/"><img src="{{ url_for('static', filename='images/link.png') }}" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+        <a href="https://x.com/ShortTemperd007"><img src="{{ url_for('static', filename='images/x2.png') }}" alt="Twitter"></a>
+    </div>
+    <p>&copy; Copyright Reserved for MUHAMMAD HUZAIFA</p>
+</footer>
+</html>
