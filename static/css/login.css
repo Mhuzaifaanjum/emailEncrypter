@@ -1,0 +1,254 @@
+/* Ensure the body and html take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox layout for the body to ensure footer sticks to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure header stays on top */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for separation */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.header-title {
+    font-size: 24px;
+    color: #f39c12;
+    margin-top: 10px;
+    animation: textAnimation 3s ease-in-out infinite;
+}
+
+/* Keyframes for header text animation */
+@keyframes textAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* Container Styles */
+.container {
+    flex: 1; /* Allow container to grow and push footer down */
+    text-align: center;
+    padding: 120px 20px 50px; /* Offset for fixed header */
+}
+
+/* Login Section Styles */
+.login-section {
+    margin: 0 auto;
+    padding: 80px 50px; /* Increased padding for larger height */
+    background: linear-gradient(135deg, #3498db, #2980b9); /* Gradient background */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    max-width: 500px; /* Slightly increased width */
+    width: 100%;
+    text-align: left;
+    margin-top: 170px; /* Ensure more space from header */
+}
+
+.login-section h2 {
+    font-size: 36px; /* Increased font size */
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Placeholder Styles */
+.form-control::placeholder {
+    color: #bdc3c7;
+    opacity: 1; /* Ensure the placeholder is visible */
+    font-style: italic;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap between form elements */
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 25px; /* Increased margin for better spacing */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px; /* Increased padding */
+    border: none; /* Removed border for cleaner look */
+    border-radius: 8px;
+    font-size: 18px; /* Increased font size */
+    transition: box-shadow 0.3s ease;
+    background-color: #ecf0f1;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.7); /* More prominent focus effect */
+    outline: none;
+}
+
+/* Button Styles */
+.btn-custom {
+    background-color: #3498db;
+    color: #fff;
+    padding: 18px 40px;
+    font-size: 18px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #3498db;;
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* User Manual Styles (Unchanged) */
+.user-manual {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 800px;
+    width: 100%;
+}
+
+.user-manual h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.user-manual h3 {
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.user-manual ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.user-manual li {
+    margin-bottom: 10px;
+}
+
+/* Footer Styles (Unchanged) */
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    margin-top: auto;
+}
+
+.social-buttons {
+    margin-bottom: 10px;
+}
+
+.social-buttons a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-buttons a img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-buttons a:hover {
+    transform: scale(1.2);
+}
+
+footer p {
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .container {
+        padding-top: 120px; /* Adjust for header on smaller screens */
+    }
+}
+
+
